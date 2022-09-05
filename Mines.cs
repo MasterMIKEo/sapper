@@ -17,19 +17,15 @@ namespace Saper
             for (int i = 0; i < 10; i++)
             {
                 int temp = Random.Next(99); //случайное число
-                int N = 0;
 
-                for (int j = 0; j < list.Count; j++)
-                    if (list[j] == temp) //проверка нет ли уже такого числа
-                        N++;
-                if (N == 0)
-                    list.Add(temp); //если нет - добавляем в список
+                if (!list.Contains(temp))
+                {
+                    list.Add(temp); //добавляем в список
+                    result[temp / 10, temp % 10] = 1; // координата мины в массиве
+                }
                 else
                     i--;
             }
-
-            for (int i = 0; i < 10; i++)                //каждое случайное число 
-                result[list[i] / 10, list[i] % 10] = 1; //это координата в массиве
 
             return result;
         }
@@ -46,8 +42,8 @@ namespace Saper
                 {
                     int K = 0; //переменная для количества мин
 
-                    try { if (mines[i - 1, j - 1] == 1) K++; } catch { } //проверяем каждый элемент макссива
-                    try { if (mines[i, j - 1] == 1) K++; } catch { } //вокруг "текущего" элемента
+                    try { if (mines[i - 1, j - 1] == 1) K++; } catch { }    //проверяем каждый элемент макссива
+                    try { if (mines[i, j - 1] == 1) K++; } catch { }        //вокруг "текущего" элемент
                     try { if (mines[i + 1, j - 1] == 1) K++; } catch { } //
                     try { if (mines[i + 1, j] == 1) K++; } catch { } //try..catch для всех "крайних" элементов
                     try { if (mines[i + 1, j + 1] == 1) K++; } catch { } //
