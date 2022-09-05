@@ -12,16 +12,17 @@ namespace Saper
         {
             int[,] result = new int[10, 10];
             Random Random = new Random();
-            List<int> list = new List<int>(); //список случайных чисел
+            List<int> list = new List<int>();
 
             for (int i = 0; i < 10; i++)
             {
-                int temp = Random.Next(99); //случайное число
+                int temp = Random.Next(99);
 
                 if (!list.Contains(temp))
                 {
-                    list.Add(temp); //добавляем в список
-                    result[temp / 10, temp % 10] = 1; // координата мины в массиве
+                    list.Add(temp);
+                    result[temp / 10, temp % 10] = 1;
+                    // случайное число это координата мины в виде массива
                 }
                 else
                     i--;
