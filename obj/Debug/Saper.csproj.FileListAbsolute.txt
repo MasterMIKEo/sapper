@@ -1,0 +1,15 @@
+C:\VS\Saper\bin\Debug\Saper.exe.config
+C:\VS\Saper\bin\Debug\Saper.exe
+C:\VS\Saper\bin\Debug\Saper.pdb
+C:\VS\Saper\obj\Debug\Saper.csproj.AssemblyReference.cache
+C:\VS\Saper\obj\Debug\Saper.csproj.SuggestedBindingRedirects.cache
+C:\VS\Saper\obj\Debug\Saper.Form1.resources
+C:\VS\Saper\obj\Debug\Saper.Properties.Resources.resources
+C:\VS\Saper\obj\Debug\Saper.csproj.GenerateResource.cache
+C:\VS\Saper\obj\Debug\Saper.csproj.CoreCompileInputs.cache
+C:\VS\Saper\obj\Debug\Saper.exe
+C:\VS\Saper\obj\Debug\Saper.pdb
+C:\VS\Saper\bin\Debug\Saper.exe.manifest
+C:\VS\Saper\bin\Debug\Saper.application
+C:\VS\Saper\obj\Debug\Saper.exe.manifest
+C:\VS\Saper\obj\Debug\Saper.application
