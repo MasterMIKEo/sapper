@@ -15,7 +15,7 @@ namespace Saper
         private int mode = 1;               //режим работы: 1 - игра не начата, 2 - наступить на поле, 3 - поставить/убрать флаг
         int[,] instFlag = new int[10, 10];  //массив для хранения позиций установленного флага 0 - нет 1 - есть
         int[,] openField = new int[10, 10]; //массив для хранения позиций открытых полей 0 - не трогали 1 - открыто
-        int[,] mines = new int[10, 10];     //массив для хранения позиций мин 0 - чисто,  1 - мина
+        bool[,] mines = new bool[10, 10];     //массив для хранения позиций мин 0 - чисто,  1 - мина
         int[,] indicate = new int[10, 10];  //массив для хранения числового значения кол-ва мин вокруг каждого поля
         int winCount = 0;                   //счетчик для победы
         int flagsCount = 10;                //счетчик установленных флагов
@@ -62,7 +62,7 @@ namespace Saper
                 case 2: //режим - 2, открываем поля
                     if (instFlag[xPole, yPole] == 0 && openField[xPole, yPole] == 0) //проверка - нет ли на поле флага, и не открыто ли оно уже
                     {
-                        if (mines[xPole, yPole] == 0) //есть ли мина в этом поле
+                        if (!mines[xPole, yPole]) //есть ли мина в этом поле
                         {
                             g.DrawRectangle(mypen, xShift, yShift, 46, 46);             //отрисовка открытого поля
                             g.FillRectangle(fonOpen, xShift + 1, yShift + 1, 45, 45);   //
@@ -83,7 +83,7 @@ namespace Saper
                             }
                         }
 
-                        else if (mines[xPole, yPole] == 1) //наткнулись на мину Game over
+                        else if (mines[xPole, yPole]) //наткнулись на мину Game over
                         {
                             g.DrawLine(mypen2, xShift + 15, yShift + 15, xShift + 35, yShift + 35); //отрисовка мины
                             g.DrawLine(mypen2, xShift + 35, yShift + 15, xShift + 15, yShift + 35); //
