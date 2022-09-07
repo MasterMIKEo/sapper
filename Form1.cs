@@ -76,8 +76,7 @@ namespace Saper
                         {
                             //процедура завершения игры
                             label1.Text = "Позравляю!\nТы Выиграл!!!";
-                            button2.Visible = false; //блокировка кнопок
-                            button3.Visible = false;
+
                         }
                     }
 
@@ -91,8 +90,7 @@ namespace Saper
 
                         //процедура завершения игры
                         label1.Text = "Game over";
-                        button2.Visible = false; //блокировка кнопок
-                        button3.Visible = false;                        
+                      
                     }
                 }
 
@@ -110,7 +108,6 @@ namespace Saper
                         instFlag[xPole, yPole] = 1; //запись в массив о располложении флагов
 
                         flagsCount--;               //кол-во флагов
-                        button3.Text = $"Флаг({flagsCount})";
                     }
 
                     else if (instFlag[xPole, yPole] == 1)                   //флаг есть?
@@ -119,7 +116,7 @@ namespace Saper
                         instFlag[xPole, yPole] = 0; //убрать запись в массиве о располложении флагов
 
                         flagsCount++; //кол-во флагов
-                        button3.Text = $"Флаг({flagsCount})";
+
                     }
                 }
             }
@@ -130,8 +127,7 @@ namespace Saper
 
         private void button1_Click(object sender, EventArgs e) //нажатие кнопки "Начать игру"
         {            
-            button2.Visible = true;//включаем кнокпки
-            button3.Visible = true;
+
 
             mines = Mines.RandomAdd(); //случайное расположение мин из метода
             indicate = Mines.Indicator(mines); //заполнение массива данными о кол-ве мин вокруг каждого поля
@@ -141,7 +137,7 @@ namespace Saper
             openField = new int[10, 10];                            //
             winCount = 0;                                           //обнуление счетчиков
             flagsCount = 10;                                        //
-            button3.Text = $"Флаг({flagsCount})";                   //
+
             Graphics g = Graphics.FromHwnd(pictureBox1.Handle);     //
             g.Clear(Color.GhostWhite);                              //очистка игрового поля
 
