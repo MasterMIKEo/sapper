@@ -61,7 +61,7 @@ namespace Saper
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
-            this.label1.Location = new System.Drawing.Point(135, 65);
+            this.label1.Location = new System.Drawing.Point(195, 506);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 54);
             this.label1.TabIndex = 4;
