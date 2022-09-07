@@ -12,9 +12,9 @@ namespace Saper
 {
     public partial class Form1 : Form
     {
-        int[,] instFlag = new int[10, 10];  //массив для хранения позиций установленного флага 0 - нет 1 - есть
-        int[,] openField = new int[10, 10]; //массив для хранения позиций открытых полей 0 - не трогали 1 - открыто
-        bool[,] mines = new bool[10, 10];     //массив для хранения позиций мин 0 - чисто,  1 - мина
+        bool[,] instFlag = new bool[10, 10];  //массив для хранения позиций установленного
+        bool[,] openField = new bool[10, 10]; //массив для хранения позиций открытых полей
+        bool[,] mines = new bool[10, 10];     
         int[,] indicate = new int[10, 10];  //массив для хранения числового значения кол-ва мин вокруг каждого поля
         int winCount = 0;                   //счетчик для победы
         int flagsCount = 10;                //счетчик установленных флагов
@@ -47,19 +47,9 @@ namespace Saper
 
 
 
-
-            // case 1: //режим - 1, ждем нажатия кнопки "начать игру"
-            //   for (int i = 0; i < 10; i++) //эта отрисовка сетки необязательна если убрать косяк с отображением label1
-            //     for (int j = 0; j < 10; j++)
-            //       g.DrawRectangle(mypen, j * 49 + j, i * 49 + i, 49, 49);
-            // label1.Text = "";
-            // break;
-
-
-
-            if (e.Button == MouseButtons.Left) //режим - 2, открываем поля
+            if (e.Button == MouseButtons.Left) // открываем поля
             {
-                if (instFlag[xPole, yPole] == 0 && openField[xPole, yPole] == 0) //проверка - нет ли на поле флага, и не открыто ли оно уже
+                if (!instFlag[xPole, yPole] && !openField[xPole, yPole]) //проверка - нет ли на поле флага, и не открыто ли оно уже
                 {
                     if (!mines[xPole, yPole]) //есть ли мина в этом поле
                     {
@@ -69,7 +59,7 @@ namespace Saper
                         for (int i = 0; i < indicate[xPole, yPole]; i++) //отрисовка количества мин вокруг этого поля
                             g.DrawLine(mypen2, xShift + 10 + 5 * i, yShift + 15, xShift + 10 + 5 * i, yShift + 35);
 
-                        openField[xPole, yPole] = 1; //запись в массив - поле открыто
+                        openField[xPole, yPole] = true; //запись в массив - поле открыто
                         winCount++;                 //на 1 шаг ближе к победе
 
                         if (winCount == 90)// открыли все чистые поля? - Победа
@@ -97,23 +87,23 @@ namespace Saper
             }
 
 
-            if (e.Button == MouseButtons.Right) // Режим - 3, ставим или убираем флаг123
+            if (e.Button == MouseButtons.Right) // ставим или убираем флаг
             {
-                if (openField[xPole, yPole] == 0) //проверка, если поле открыто (1) - ничего не далаем
+                if (!openField[xPole, yPole]) //проверка, если поле открыто - ничего не далаем
                 {
-                    if (instFlag[xPole, yPole] == 0)                             //флага нет?
+                    if (!instFlag[xPole, yPole])                             //флага нет?
                     {
                         g.FillRectangle(flag, xShift + 20, yShift + 20, 10, 10); //рисуем флаг
                         g.DrawLine(mypen, xShift + 20, yShift + 20, xShift + 20, yShift + 40);
-                        instFlag[xPole, yPole] = 1; //запись в массив о располложении флагов
+                        instFlag[xPole, yPole] = true; //запись в массив о располложении флагов
 
                         flagsCount--;               //кол-во флагов
                     }
 
-                    else if (instFlag[xPole, yPole] == 1)                   //флаг есть?
+                    else if (instFlag[xPole, yPole])                   //флаг есть?
                     {
                         g.FillRectangle(fonClose, xShift + 1, yShift + 1, 48, 48); //рисуем пустое поле
-                        instFlag[xPole, yPole] = 0; //убрать запись в массиве о располложении флагов
+                        instFlag[xPole, yPole] = false; //убрать запись в массиве о располложении флагов
 
                         flagsCount++; //кол-во флагов
 
@@ -133,8 +123,8 @@ namespace Saper
             indicate = Mines.Indicator(mines); //заполнение массива данными о кол-ве мин вокруг каждого поля
 
             label1.Text = "";                                       //убрать надпись после предыдущей игры
-            instFlag = new int[10, 10];                             //обнуление массивов
-            openField = new int[10, 10];                            //
+            instFlag = new bool[10, 10];                             //обнуление массивов
+            openField = new bool[10, 10];                            //
             winCount = 0;                                           //обнуление счетчиков
             flagsCount = 10;                                        //
 
