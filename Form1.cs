@@ -81,29 +81,8 @@ namespace Saper
             }
 
 
-            if (e.Button == MouseButtons.Right) // ставим или убираем флаг
-            {
-                if (!openField[xPole, yPole]) //проверка, если поле открыто - ничего не далаем
-                {
-                    if (!instFlag[xPole, yPole])                             //флага нет?
-                    {
-                        g.FillRectangle(flag, xShift + 20, yShift + 20, 10, 10); //рисуем флаг
-                        g.DrawLine(mypen, xShift + 20, yShift + 20, xShift + 20, yShift + 40);
-                        instFlag[xPole, yPole] = true; //запись в массив о располложении флагов
-
-                        flagsCount--;               //кол-во флагов
-                    }
-
-                    else if (instFlag[xPole, yPole])                   //флаг есть?
-                    {
-                        g.FillRectangle(fonClose, xShift + 1, yShift + 1, 48, 48); //рисуем пустое поле
-                        instFlag[xPole, yPole] = false; //убрать запись в массиве о располложении флагов
-
-                        flagsCount++; //кол-во флагов
-
-                    }
-                }
-            }
+            if (e.Button == MouseButtons.Right && !openField[xPole, yPole]) // ставим или убираем флаг           
+                    Drawning.Flag(pictureBox1, xShift, yShift, xPole, yPole, instFlag);       
             
 
         }

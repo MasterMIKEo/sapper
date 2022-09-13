@@ -28,6 +28,7 @@ namespace Saper
                 g.DrawLine(mypen2, xShift + 10 + 5 * i, yShift + 15, xShift + 10 + 5 * i, yShift + 35);
         }
 
+
         public static void Mine(PictureBox pictureBox1, int xShift, int yShift, int xPole, int yPole)
         {
             Pen mypen = new Pen(Color.Black, 1);                    // стили рисования
@@ -43,6 +44,31 @@ namespace Saper
             g.DrawLine(mypen2, xShift + 25, yShift + 12, xShift + 25, yShift + 38); //
             g.DrawLine(mypen2, xShift + 38, yShift + 25, xShift + 12, yShift + 25); //
             g.FillEllipse(flag, xShift + 15, yShift + 15, 20, 20);                  //
+        }
+
+
+        public static void Flag(PictureBox pictureBox1, int xShift, int yShift, int xPole, int yPole, bool[,] instFlag)
+        {
+            Pen mypen = new Pen(Color.Black, 1);                    // стили рисования
+            Pen mypen2 = new Pen(Color.Black, 3);                   //
+            SolidBrush fonOpen = new SolidBrush(Color.Goldenrod);   //
+            SolidBrush flag = new SolidBrush(Color.Red);            //
+            SolidBrush fonClose = new SolidBrush(Color.GhostWhite); //
+
+            Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
+
+            if (!instFlag[xPole, yPole])                             //флага нет?
+            {
+                g.FillRectangle(flag, xShift + 20, yShift + 20, 10, 10); //рисуем флаг
+                g.DrawLine(mypen, xShift + 20, yShift + 20, xShift + 20, yShift + 40);
+                instFlag[xPole, yPole] = true; //запись в массив о располложении флагов
+            }
+
+            else if (instFlag[xPole, yPole])                   //флаг есть?
+            {
+                g.FillRectangle(fonClose, xShift + 1, yShift + 1, 48, 48); //рисуем пустое поле
+                instFlag[xPole, yPole] = false; //убрать запись в массиве о располложении флагов
+            }
         }
     }
 }
