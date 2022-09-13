@@ -18,6 +18,8 @@ namespace Saper
         int[,] indicate = new int[10, 10];  //массив для хранения числового значения кол-ва мин вокруг каждого поля
         int winCount = 0;                   //счетчик для победы
         int flagsCount = 10;                //счетчик установленных флагов
+        public int xShift = 0; //координаты сдвига
+        public int yShift = 0; //для отрисовки элемента в поле
 
         Pen mypen = new Pen(Color.Black, 1);                    // стили рисования
         Pen mypen2 = new Pen(Color.Black, 3);                   //
@@ -42,8 +44,8 @@ namespace Saper
             var xPole = e.X / 50; //координаты нажатия кнопки преобразуем в координаты поля (каждое поле 50х50 пикселей)
             var yPole = e.Y / 50; //нужны для взаимодействия с массивами
 
-            int xShift = xPole * 49 + xPole; //координаты сдвига
-            int yShift = yPole * 49 + yPole; //для отрисовки элемента в поле
+            xShift = xPole * 49 + xPole; //координаты сдвига
+            yShift = yPole * 49 + yPole; //для отрисовки элемента в поле
 
 
 
@@ -53,11 +55,7 @@ namespace Saper
                 {
                     if (!mines[xPole, yPole]) //есть ли мина в этом поле
                     {
-                        g.DrawRectangle(mypen, xShift, yShift, 46, 46);             //отрисовка открытого поля
-                        g.FillRectangle(fonOpen, xShift + 1, yShift + 1, 45, 45);   //
-
-                        for (int i = 0; i < indicate[xPole, yPole]; i++) //отрисовка количества мин вокруг этого поля
-                            g.DrawLine(mypen2, xShift + 10 + 5 * i, yShift + 15, xShift + 10 + 5 * i, yShift + 35);
+                        Drawning.OpenField(pictureBox1, xShift, yShift, xPole, yPole, indicate);
 
                         openField[xPole, yPole] = true; //запись в массив - поле открыто
                         winCount++;                 //на 1 шаг ближе к победе
