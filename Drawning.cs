@@ -59,6 +59,14 @@ namespace Saper
             }
         }
 
+        public static void StartGrid(PictureBox pictureBox1)
+        {
+            Graphics g = Graphics.FromHwnd(pictureBox1.Handle);     //
+            g.Clear(Color.GhostWhite);                              //очистка игрового поля
 
+            for (int i = 0; i < 10; i++)                            //отрисовка новой сетки
+                for (int j = 0; j < 10; j++)
+                    g.DrawRectangle(mypen, j * 49 + j, i * 49 + i, 49, 49);
+        }
     }
 }

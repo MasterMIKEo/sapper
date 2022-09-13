@@ -20,12 +20,6 @@ namespace Saper
         public int xShift = 0; //координаты сдвига
         public int yShift = 0; //для отрисовки элемента в поле
 
-        Pen mypen = new Pen(Color.Black, 1);                    // стили рисования
-        Pen mypen2 = new Pen(Color.Black, 3);                   //
-        SolidBrush fonOpen = new SolidBrush(Color.Goldenrod);   //
-        SolidBrush flag = new SolidBrush(Color.Red);            //
-        SolidBrush fonClose = new SolidBrush(Color.GhostWhite); //
-
 
         public Form1()
         {
@@ -86,9 +80,7 @@ namespace Saper
 
 
         private void button1_Click(object sender, EventArgs e) //нажатие кнопки "Начать игру"
-        {            
-
-
+        {           
             mines = Mines.RandomAdd(); //случайное расположение мин из метода
             indicate = Mines.Indicator(mines); //заполнение массива данными о кол-ве мин вокруг каждого поля
 
@@ -97,14 +89,9 @@ namespace Saper
             openField = new bool[10, 10];                            //
             winCount = 0;                                           //обнуление счетчиков
 
-
-            Graphics g = Graphics.FromHwnd(pictureBox1.Handle);     //
-            g.Clear(Color.GhostWhite);                              //очистка игрового поля
-
-            for (int i = 0; i < 10; i++)                            //отрисовка новой сетки
-                for (int j = 0; j < 10; j++)
-                    g.DrawRectangle(mypen, j * 49 + j, i * 49 + i, 49, 49);           
+            Drawning.StartGrid(pictureBox1);
         }
+
 
         private void button2_Click(object sender, EventArgs e) //кнопка "наступить на поле"
         {
