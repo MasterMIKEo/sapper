@@ -17,7 +17,6 @@ namespace Saper
         bool[,] mines = new bool[10, 10];     
         int[,] indicate = new int[10, 10];  //массив для хранения числового значения кол-ва мин вокруг каждого поля
         int winCount = 0;                   //счетчик для победы
-        int flagsCount = 10;                //счетчик установленных флагов
         public int xShift = 0; //координаты сдвига
         public int yShift = 0; //для отрисовки элемента в поле
 
@@ -39,8 +38,6 @@ namespace Saper
         //оснвоная логика игры - нажатие кнопки мыши по полю pictureBox1
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
-
             var xPole = e.X / 50; //координаты нажатия кнопки преобразуем в координаты поля (каждое поле 50х50 пикселей)
             var yPole = e.Y / 50; //нужны для взаимодействия с массивами
 
@@ -99,7 +96,7 @@ namespace Saper
             instFlag = new bool[10, 10];                             //обнуление массивов
             openField = new bool[10, 10];                            //
             winCount = 0;                                           //обнуление счетчиков
-            flagsCount = 10;                                        //
+
 
             Graphics g = Graphics.FromHwnd(pictureBox1.Handle);     //
             g.Clear(Color.GhostWhite);                              //очистка игрового поля

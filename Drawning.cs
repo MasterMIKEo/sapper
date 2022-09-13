@@ -10,15 +10,15 @@ namespace Saper
 {
     public class Drawning
     {
+        static Pen mypen = new Pen(Color.Black, 1);                    // стили рисования
+        static Pen mypen2 = new Pen(Color.Black, 3);                   //
+        static SolidBrush fonOpen = new SolidBrush(Color.Goldenrod);   //
+        static SolidBrush flag = new SolidBrush(Color.Red);            //
+        static SolidBrush fonClose = new SolidBrush(Color.GhostWhite); //
+
 
         public static void OpenField(PictureBox pictureBox1, int xShift, int yShift, int xPole, int yPole, int[,] indicate)
         {
-            Pen mypen = new Pen(Color.Black, 1);                    // стили рисования
-            Pen mypen2 = new Pen(Color.Black, 3);                   //
-            SolidBrush fonOpen = new SolidBrush(Color.Goldenrod);   //
-            SolidBrush flag = new SolidBrush(Color.Red);            //
-            SolidBrush fonClose = new SolidBrush(Color.GhostWhite); //
-
             Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
 
             g.DrawRectangle(mypen, xShift, yShift, 46, 46);             //отрисовка открытого поля
@@ -31,12 +31,6 @@ namespace Saper
 
         public static void Mine(PictureBox pictureBox1, int xShift, int yShift, int xPole, int yPole)
         {
-            Pen mypen = new Pen(Color.Black, 1);                    // стили рисования
-            Pen mypen2 = new Pen(Color.Black, 3);                   //
-            SolidBrush fonOpen = new SolidBrush(Color.Goldenrod);   //
-            SolidBrush flag = new SolidBrush(Color.Red);            //
-            SolidBrush fonClose = new SolidBrush(Color.GhostWhite); //
-
             Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
 
             g.DrawLine(mypen2, xShift + 15, yShift + 15, xShift + 35, yShift + 35); //отрисовка мины
@@ -49,12 +43,6 @@ namespace Saper
 
         public static void Flag(PictureBox pictureBox1, int xShift, int yShift, int xPole, int yPole, bool[,] instFlag)
         {
-            Pen mypen = new Pen(Color.Black, 1);                    // стили рисования
-            Pen mypen2 = new Pen(Color.Black, 3);                   //
-            SolidBrush fonOpen = new SolidBrush(Color.Goldenrod);   //
-            SolidBrush flag = new SolidBrush(Color.Red);            //
-            SolidBrush fonClose = new SolidBrush(Color.GhostWhite); //
-
             Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
 
             if (!instFlag[xPole, yPole])                             //флага нет?
@@ -70,5 +58,7 @@ namespace Saper
                 instFlag[xPole, yPole] = false; //убрать запись в массиве о располложении флагов
             }
         }
+
+
     }
 }
