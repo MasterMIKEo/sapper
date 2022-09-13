@@ -27,5 +27,22 @@ namespace Saper
             for (int i = 0; i < indicate[xPole, yPole]; i++) //отрисовка количества мин вокруг этого поля
                 g.DrawLine(mypen2, xShift + 10 + 5 * i, yShift + 15, xShift + 10 + 5 * i, yShift + 35);
         }
+
+        public static void Mine(PictureBox pictureBox1, int xShift, int yShift, int xPole, int yPole)
+        {
+            Pen mypen = new Pen(Color.Black, 1);                    // стили рисования
+            Pen mypen2 = new Pen(Color.Black, 3);                   //
+            SolidBrush fonOpen = new SolidBrush(Color.Goldenrod);   //
+            SolidBrush flag = new SolidBrush(Color.Red);            //
+            SolidBrush fonClose = new SolidBrush(Color.GhostWhite); //
+
+            Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
+
+            g.DrawLine(mypen2, xShift + 15, yShift + 15, xShift + 35, yShift + 35); //отрисовка мины
+            g.DrawLine(mypen2, xShift + 35, yShift + 15, xShift + 15, yShift + 35); //
+            g.DrawLine(mypen2, xShift + 25, yShift + 12, xShift + 25, yShift + 38); //
+            g.DrawLine(mypen2, xShift + 38, yShift + 25, xShift + 12, yShift + 25); //
+            g.FillEllipse(flag, xShift + 15, yShift + 15, 20, 20);                  //
+        }
     }
 }

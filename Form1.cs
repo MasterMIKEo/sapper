@@ -60,7 +60,7 @@ namespace Saper
                         openField[xPole, yPole] = true; //запись в массив - поле открыто
                         winCount++;                 //на 1 шаг ближе к победе
 
-                        if (winCount == 90)// открыли все чистые поля? - Победа
+                        if (winCount == 85)// открыли все чистые поля? - Победа
                         {
                             //процедура завершения игры
                             label1.Text = "Позравляю!";
@@ -70,11 +70,7 @@ namespace Saper
 
                     else if (mines[xPole, yPole]) //наткнулись на мину Game over
                     {
-                        g.DrawLine(mypen2, xShift + 15, yShift + 15, xShift + 35, yShift + 35); //отрисовка мины
-                        g.DrawLine(mypen2, xShift + 35, yShift + 15, xShift + 15, yShift + 35); //
-                        g.DrawLine(mypen2, xShift + 25, yShift + 12, xShift + 25, yShift + 38); //
-                        g.DrawLine(mypen2, xShift + 38, yShift + 25, xShift + 12, yShift + 25); //
-                        g.FillEllipse(flag, xShift + 15, yShift + 15, 20, 20);                  //
+                        Drawning.Mine(pictureBox1, xShift, yShift, xPole, yPole);
 
                         //процедура завершения игры
                         label1.Text = "Game over";

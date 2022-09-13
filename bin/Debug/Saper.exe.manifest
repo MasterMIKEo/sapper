@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Saper.exe" size="12736">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Saper.exe" size="13248">
       <assemblyIdentity name="Saper" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XSsydjGQYam5CaMIf+GMLe25Ect8gk5uAvHLHMTj16Y=</dsig:DigestValue>
+        <dsig:DigestValue>duK3Zw9xhBiKf3hpDRsAOnlvuFiQlHKXeKPoQQHpnGo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
