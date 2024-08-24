@@ -12,6 +12,7 @@ namespace Saper
 {
     public partial class Form1 : Form
     {
+        bool StartGame = false;
         bool[,] instFlag = new bool[10, 10];  //массив для хранения позиций установленного
         bool[,] openField = new bool[10, 10]; //массив для хранения позиций открытых полей
         bool[,] mines = new bool[10, 10];     
@@ -42,7 +43,7 @@ namespace Saper
 
             if (e.Button == MouseButtons.Left) // открываем поля
             {
-                if (!instFlag[xPole, yPole] && !openField[xPole, yPole]) //проверка - нет ли на поле флага, и не открыто ли оно уже
+                if (!instFlag[xPole, yPole] && !openField[xPole, yPole] && StartGame) //проверка - нет ли на поле флага, и не открыто ли оно уже
                 {
                     if (!mines[xPole, yPole]) //есть ли мина в этом поле
                     {
@@ -72,7 +73,7 @@ namespace Saper
             }
 
 
-            if (e.Button == MouseButtons.Right && !openField[xPole, yPole]) // ставим или убираем флаг           
+            if (e.Button == MouseButtons.Right && !openField[xPole, yPole] && StartGame) // ставим или убираем флаг           
                     Drawning.Flag(pictureBox1, xShift, yShift, xPole, yPole, instFlag);       
             
 
@@ -80,7 +81,8 @@ namespace Saper
 
 
         private void button1_Click(object sender, EventArgs e) //нажатие кнопки "Начать игру"
-        {           
+        {
+            StartGame = true;
             mines = Mines.RandomAdd(); //случайное расположение мин из метода
             indicate = Mines.Indicator(mines); //заполнение массива данными о кол-ве мин вокруг каждого поля
 
