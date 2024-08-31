@@ -56,6 +56,7 @@ namespace Saper
                         {
                             //процедура завершения игры
                             label1.Text = "Позравляю!";
+                            StartGame = false;
 
                         }
                     }
@@ -66,7 +67,8 @@ namespace Saper
 
                         //процедура завершения игры
                         label1.Text = "Game over";
-                      
+                        StartGame = false;
+
                     }
                 }
 

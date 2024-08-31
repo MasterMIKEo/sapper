@@ -28,3 +28,17 @@ C:\Git\sapper\obj\Debug\Saper.exe.manifest
 C:\Git\sapper\obj\Debug\Saper.application
 C:\Git\sapper\obj\Debug\Saper.exe
 C:\Git\sapper\obj\Debug\Saper.pdb
+C:\Users\МишАня\Source\Repos\sapper777\obj\Debug\Saper.csproj.AssemblyReference.cache
+C:\Users\МишАня\Source\Repos\sapper777\obj\Debug\Saper.Form1.resources
+C:\Users\МишАня\Source\Repos\sapper777\obj\Debug\Saper.Properties.Resources.resources
+C:\Users\МишАня\Source\Repos\sapper777\obj\Debug\Saper.csproj.GenerateResource.cache
+C:\Users\МишАня\Source\Repos\sapper777\obj\Debug\Saper.csproj.CoreCompileInputs.cache
+C:\Users\МишАня\Source\Repos\sapper777\obj\Debug\Saper.exe
+C:\Users\МишАня\Source\Repos\sapper777\obj\Debug\Saper.pdb
+C:\Users\МишАня\Source\Repos\sapper777\bin\Debug\Saper.exe.config
+C:\Users\МишАня\Source\Repos\sapper777\bin\Debug\Saper.exe.manifest
+C:\Users\МишАня\Source\Repos\sapper777\bin\Debug\Saper.application
+C:\Users\МишАня\Source\Repos\sapper777\bin\Debug\Saper.exe
+C:\Users\МишАня\Source\Repos\sapper777\bin\Debug\Saper.pdb
+C:\Users\МишАня\Source\Repos\sapper777\obj\Debug\Saper.exe.manifest
+C:\Users\МишАня\Source\Repos\sapper777\obj\Debug\Saper.application
