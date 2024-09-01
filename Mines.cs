@@ -14,7 +14,7 @@ namespace Saper
             Random Random = new Random();
             List<int> list = new List<int>();
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 15; i++)
             {
                 int temp = Random.Next(99);
 
