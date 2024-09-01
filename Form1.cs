@@ -55,7 +55,7 @@ namespace Saper
                         if (winCount == 85)// открыли все чистые поля? - Победа
                         {
                             //процедура завершения игры
-                            label1.Text = "Позравляю!";
+                            label1.Text = "!!!ПОБЕДА!!!";
                             StartGame = false;
 
                         }
