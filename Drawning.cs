@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Windows.Forms;
+using System.Threading;
+using System.Xml.Linq;
 
 namespace Saper
 {
@@ -16,6 +19,11 @@ namespace Saper
         static SolidBrush flag = new SolidBrush(Color.Red);            //
         static SolidBrush fonClose = new SolidBrush(Color.GhostWhite); //
 
+        static SolidBrush NullMines = new SolidBrush(Color.Gray); //цвет количества мин равное 0
+        static SolidBrush OneOrTwoMines = new SolidBrush(Color.Black); //цвет количества мин равное 1,2
+        static SolidBrush TreeAndMoreMines = new SolidBrush(Color.Red); //цвет количества мин равное 3 и более
+
+        static Font MyFont = new Font("Arial", 25, FontStyle.Bold);
 
         public static void OpenField(PictureBox pictureBox1, int xShift, int yShift, int xPole, int yPole, int[,] indicate)
         {
@@ -23,9 +31,42 @@ namespace Saper
 
             g.DrawRectangle(mypen, xShift, yShift, 46, 46);             //отрисовка открытого поля
             g.FillRectangle(fonOpen, xShift + 1, yShift + 1, 45, 45);   //
+            string CountMines = indicate[xPole, yPole].ToString();
+            SolidBrush ColorCountMines = new SolidBrush(Color.Gray);
 
-            for (int i = 0; i < indicate[xPole, yPole]; i++) //отрисовка количества мин вокруг этого поля
-                g.DrawLine(mypen2, xShift + 10 + 5 * i, yShift + 15, xShift + 10 + 5 * i, yShift + 35);
+            switch (indicate[xPole, yPole])
+            {
+                case 0:
+                    ColorCountMines = NullMines;
+                    break;
+                case 1:
+                    ColorCountMines = OneOrTwoMines;
+                    break;
+                case 2:
+                    ColorCountMines = OneOrTwoMines;
+                    break;
+                case 3:
+                    ColorCountMines = TreeAndMoreMines;
+                    break;
+                case 4:
+                    ColorCountMines = TreeAndMoreMines;
+                    break;
+                case 5:
+                    ColorCountMines = TreeAndMoreMines;
+                    break;
+                case 6:
+                    ColorCountMines = TreeAndMoreMines;
+                    break;
+                case 7:
+                    ColorCountMines = TreeAndMoreMines;
+                    break;
+                case 8:
+                    ColorCountMines = TreeAndMoreMines;
+                    break;
+            }
+
+            g.DrawString(CountMines, MyFont, ColorCountMines, xShift + 8, yShift + 5); //отрисовка количества мин в виде текста
+
         }
 
 
